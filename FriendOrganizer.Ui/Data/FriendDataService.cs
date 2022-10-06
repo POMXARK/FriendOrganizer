@@ -2,9 +2,9 @@
 using FriendOrganizer.Model;
 using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace FriendOrganizer.UI.Data
 {
@@ -36,6 +36,14 @@ namespace FriendOrganizer.UI.Data
             using (var ctx = _contextCreator())
             {
                 return await ctx.Friends.AsNoTracking().ToListAsync();
+            }
+        }
+
+        public async Task<Friend> GetByIdAsync(int friendId)
+        {
+            using (var ctx = _contextCreator())
+            {
+                return await ctx.Friends.AsNoTracking().SingleAsync(f => f.Id == friendId);
             }
         }
     }

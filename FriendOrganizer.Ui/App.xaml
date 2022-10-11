@@ -1,7 +1,7 @@
-﻿<Application x:Class="FriendOrganizer.Ui.App"
+﻿<Application x:Class="FriendOrganizer.UI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:FriendOrganizer.Ui"
+             xmlns:local="clr-namespace:FriendOrganizer.UI"
              Startup="Application_Startup">
     <Application.Resources>
         <Style TargetType="TextBox">

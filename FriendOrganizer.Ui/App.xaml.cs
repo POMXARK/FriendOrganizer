@@ -2,7 +2,7 @@
 using FriendOrganizer.UI.Startup;
 using System.Windows;
 
-namespace FriendOrganizer.Ui
+namespace FriendOrganizer.UI
 {
     public partial class App : Application
     {

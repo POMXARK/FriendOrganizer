@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace FriendOrganizer.Ui.Wrapper
+namespace FriendOrganizer.UI.Wrapper
 {
     public class NotifyErrorInfoBase: ViewModelBase, INotifyDataErrorInfo
     {

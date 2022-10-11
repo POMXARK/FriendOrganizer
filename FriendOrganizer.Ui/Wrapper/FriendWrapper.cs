@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using static javax.swing.DefaultRowSorter;
 
-namespace FriendOrganizer.Ui.Wrapper
+namespace FriendOrganizer.UI.Wrapper
 {
     public class FriendWrapper: ModelWrapper<Friend>
     {

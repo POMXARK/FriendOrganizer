@@ -1,6 +1,6 @@
-﻿using FriendOrganizer.Ui.Event;
-using FriendOrganizer.Ui.ViewModel;
-using FriendOrganizer.UI.Data;
+﻿using FriendOrganizer.UI.Event;
+using FriendOrganizer.UI.ViewModel;
+using FriendOrganizer.UI.Data.Lookups;
 using Prism.Events;
 using System.Collections.ObjectModel;
 using System.Linq;

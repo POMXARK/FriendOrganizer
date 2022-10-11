@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FriendOrganizer.Ui.View
+namespace FriendOrganizer.UI.View
 {
     /// <summary>
     /// Логика взаимодействия для NavigationView.xaml

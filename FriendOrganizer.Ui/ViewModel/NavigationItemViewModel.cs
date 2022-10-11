@@ -1,6 +1,6 @@
 ﻿using FriendOrganizer.UI.ViewModel;
 
-namespace FriendOrganizer.Ui.ViewModel
+namespace FriendOrganizer.UI.ViewModel
 {
     public class NavigationItemViewModel: ViewModelBase
     {

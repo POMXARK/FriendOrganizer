@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace FriendOrganizer.Ui.Wrapper
+namespace FriendOrganizer.UI.Wrapper
 {
     public class ModelWrapper<T>: NotifyErrorInfoBase
     {

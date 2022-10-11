@@ -20,4 +20,8 @@
     <ProjectReference Include="..\FriendOrganizer.Model\FriendOrganizer.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

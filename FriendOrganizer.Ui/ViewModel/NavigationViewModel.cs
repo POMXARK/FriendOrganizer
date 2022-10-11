@@ -1,9 +1,7 @@
-﻿using FriendOrganizer.DataAccess;
-using FriendOrganizer.Model;
-using FriendOrganizer.Ui.Event;
+﻿using FriendOrganizer.Ui.Event;
 using FriendOrganizer.Ui.ViewModel;
+using FriendOrganizer.UI.Data;
 using Prism.Events;
-using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;

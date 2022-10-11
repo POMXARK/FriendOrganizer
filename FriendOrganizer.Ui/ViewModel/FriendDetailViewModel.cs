@@ -1,9 +1,8 @@
-﻿using FriendOrganizer.Model;
-using FriendOrganizer.Ui.Event;
+﻿using FriendOrganizer.Ui.Event;
+using FriendOrganizer.Ui.Wrapper;
 using FriendOrganizer.UI.Data;
 using Prism.Commands;
 using Prism.Events;
-using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -13,6 +12,7 @@ namespace FriendOrganizer.UI.ViewModel
     {
         private IFriendDataService _dataService;
         private IEventAggregator _eventAggregator;
+        private FriendWrapper _friend;
 
         public FriendDetailViewModel(IFriendDataService dataService,
             IEventAggregator eventAggregator)
@@ -25,9 +25,38 @@ namespace FriendOrganizer.UI.ViewModel
             SaveCommand = new DelegateCommand(OnSaveExecute, OnSaveCanExetute);
         }
 
+        public async Task LoadAsync(int friendId)
+        {
+            var friend = await _dataService.GetByIdAsync(friendId);
+            
+            Friend = new FriendWrapper(friend);
+
+            Friend.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == nameof(Friend))
+                {
+                    ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
+                }
+            };
+
+            ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
+        }
+
+        public FriendWrapper Friend
+        {
+            get { return _friend; }
+            private set
+            {
+                _friend = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand SaveCommand { get; }
+
         private async void OnSaveExecute()
         {
-            await _dataService.SaveAsync(Friend);
+            await _dataService.SaveAsync(Friend.Model);
             _eventAggregator.GetEvent<AfterSaveFriendEvent>().Publish(
                 new AfterSaveFriendEventArgs
                 {
@@ -38,31 +67,13 @@ namespace FriendOrganizer.UI.ViewModel
 
         private bool OnSaveCanExetute()
         {
-            // TODO: check is friend is valid
-            return true;
+            // TODO: Check in addition if friend has changes
+            return Friend!=null && !Friend.HasErrors;
         }
 
         private async void OnOpenFriendDetailView(int friendId)
         {
             await LoadAsync(friendId);
         }
-
-        public async Task LoadAsync(int friendId)
-        {
-           Friend = await _dataService.GetByIdAsync(friendId);
-        }
-
-        private Friend _friend;
-
-        public Friend Friend
-        {
-            get { return _friend; }
-            private set {
-                _friend = value; 
-                OnPropertyChanged();
-            }
-        }
-
-        public ICommand SaveCommand { get; }
     }
 }
